@@ -1,4 +1,91 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   width: 100%;
   height: 100%;
+  font-size: 16pt;
+}
+
+.page {
+  padding: 1em;
+}
+
+.title {
+  font-size: 1.1em;
+}
+
+.frm {
+  display: block;
+  position: relative;
+}
+
+.btn {
+  display: inline-block;
+  margin: 0;
+  padding: 0.5em 0.75em;
+  background: #c6c6c6;
+  border-radius: 0;
+  color: #333333;
+  border: 3px solid transparent;
+}
+
+.btn:hover {
+  border: 3px solid #4596be;
+}
+
+.inp {
+  padding: 0.5em;
+  border: 0;
+  width: 100%;
+}
+
+.inp-row {
+  border: 1px solid #e0e0e0;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1em;
+}
+
+.inp-qty {
+  max-width: 5em;
+}
+
+.inp-actions {
+  position: relative;
+  display: inline-block;
+}
+
+.list {
+  margin: 1em 0;
+  display: grid;
+  grid-template-rows: fit-content(2em) auto;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "count title" "records records";
+}
+
+.list-title {
+  grid-area: title;
+  padding: 0.5em;
+}
+
+.list-item-count {
+  grid-area: count;
+  background-color: #4596be;
+  padding: 0.5em;
+}
+
+.tbl {
+  grid-area: records;
+}
+
+.tbl thead {
+  background-color: #4596be;
+  color: white;
+}
+
+.tbl th, .tbl td {
+  font-weight: 300;
+  padding: 0.5em;
 }
