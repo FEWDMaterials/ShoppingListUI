@@ -1,6 +1,7 @@
-const getShoppingList = () => {
+const getShoppingList = (name) => {
 	const ShoppingList = {
 		list: [],
+		listName: '',
 		addToList: (item) => {
 			ShoppingList.list.push(item);
 
@@ -15,14 +16,20 @@ const getShoppingList = () => {
 		},
 		countItemsInList: () => {
 			return ShoppingList.list.length;
+		},
+
+		setListName: (name) => {
+			ShoppingList.listName = name;
 		}
 	};
+
+	ShoppingList.setListName(name);
 
 	return ShoppingList;
 };
 
-const ctown = getShoppingList();
-const wholefoods = getShoppingList();
+const ctown = getShoppingList('CTown');
+const wholefoods = getShoppingList('Whole Foods');
 
 ctown.addToList('mangoes');
 ctown.addToList('coffee');
