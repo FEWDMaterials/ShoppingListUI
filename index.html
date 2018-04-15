@@ -6,7 +6,40 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-<h1>Hello, Wrold!</h1>
+<h1 class="title">Hello, Wrold!</h1>
+
+<form class="frm frm-add-groceries" action="#">
+    <div class="inp-row inp-qty">
+        <input class="inp inp-num" type="number" placeholder="Qty"/>
+    </div>
+
+    <div class="inp-row inp-item-name">
+        <input class="inp inp-txt" type="text" placeholder="Item Name"/>
+    </div>
+
+    <div class="inp-actions">
+        <button class="btn btn-add">Add To List</button>
+    </div>
+</form>
+
+
+<table class="tbl tbl-groceries">
+    <thead>
+    <tr>
+        <th>Qty</th>
+        <th>Item</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>Test</td>
+        <td>Remove / Edit</td>
+    </tr>
+    </tbody>
+</table>
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
