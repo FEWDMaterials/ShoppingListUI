@@ -1,0 +1,23 @@
+{
+  "name": "ga_shoppinglistui",
+  "version": "1.0.0",
+  "description": "Simple to feature rich shopping list UI lab",
+  "main": "index.js",
+  "dependencies": {
+    "css-reset-and-normalize": "^0.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nazarioa/ShoppingListUI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nazarioa/ShoppingListUI/issues"
+  },
+  "homepage": "https://github.com/nazarioa/ShoppingListUI#readme"
+}

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
-          integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="node_modules/css-reset-and-normalize/css/reset-and-normalize.css"/>
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
@@ -37,24 +36,23 @@
             </tr>
             </thead>
             <tbody class="lst-items">
-            <tr class="lst-item">
-                <td>1</td>
-                <td>Test</td>
-                <td>Remove / Edit</td>
-            </tr>
             </tbody>
+            <template id="tpl-item-row">
+                <tr class="lst-item">
+                    <td class="item-qty"></td>
+                    <td class="item-name"></td>
+                    <td class="item-actions">
+                        <button class="btn btn-inline btn-remove action-item-remove">Remove</button>
+                        <button class="btn btn-inline btn-edit action-item-edit">Edit</button>
+                    </td>
+                </tr>
+            </template>
         </table>
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
-        integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
         crossorigin="anonymous"></script>
 <script src="javascript/shoppinglist.js"></script>
 </body>
