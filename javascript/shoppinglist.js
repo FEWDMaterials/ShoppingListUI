@@ -2,6 +2,9 @@
 	const inpItemNameElm = document.querySelector('.inp-item-name .inp');
 	const btnAdd = document.querySelector('.inp-actions .btn-add');
 
+	const listBody = document.querySelector('.lst-items');
+	const tplItemRow = document.querySelector('#tpl-item-row');
+
 	const getShoppingList = (name) => {
 		const ShoppingList = {
 			list: [],
@@ -12,11 +15,12 @@
 				return ShoppingList.list;
 			},
 			displayList: () => {
-				let str = '';
+				listBody.innerHTML = '';
 				for (let i = 0; i < ShoppingList.list.length; i++) {
-					str += (i + 1) + '. ' + ShoppingList.list[i] + '\n';
+					const row = tplItemRow.content.cloneNode(true);
+					row.querySelector('.item-name').innerHTML = ShoppingList.list[i];
+					listBody.appendChild(row);
 				}
-				return str;
 			},
 			countItemsInList: () => {
 				return ShoppingList.list.length;
@@ -35,10 +39,16 @@
 	const actionAddItemToList = () => {
 		ctown.addToList(inpItemNameElm.value.trim());
 		inpItemNameElm.value = '';
-		console.log(ctown.displayList());
+		ctown.displayList();
 	};
 
 	btnAdd.addEventListener('click', actionAddItemToList);
+
+	document.addEventListener('keyup', (event) => {
+		if (event.keyCode === 13) {
+			actionAddItemToList;
+		}
+	});
 
 	const ctown = getShoppingList('CTown');
 	const wholefoods = getShoppingList('Whole Foods');
@@ -54,5 +64,4 @@
 	console.log('wholefoods fam');
 	console.log(wholefoods.displayList());
 	console.log('ctown fam');
-	console.log(ctown.displayList());
 })();
