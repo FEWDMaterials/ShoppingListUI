@@ -1,4 +1,7 @@
 (function () {
+	const inpItemNameElm = document.querySelector('.inp-item-name .inp');
+	const btnAdd = document.querySelector('.inp-actions .btn-add');
+
 	const getShoppingList = (name) => {
 		const ShoppingList = {
 			list: [],
@@ -28,6 +31,14 @@
 
 		return ShoppingList;
 	};
+
+	const actionAddItemToList = () => {
+		ctown.addToList(inpItemNameElm.value.trim());
+		inpItemNameElm.value = '';
+		console.log(ctown.displayList());
+	};
+
+	btnAdd.addEventListener('click', actionAddItemToList);
 
 	const ctown = getShoppingList('CTown');
 	const wholefoods = getShoppingList('Whole Foods');
