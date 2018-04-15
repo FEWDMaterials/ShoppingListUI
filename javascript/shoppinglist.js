@@ -37,9 +37,9 @@
 	};
 
 	const actionAddItemToList = () => {
-		ctown.addToList(inpItemNameElm.value.trim());
+		list.addToList(inpItemNameElm.value.trim());
 		inpItemNameElm.value = '';
-		ctown.displayList();
+		list.displayList();
 	};
 
 	btnAdd.addEventListener('click', actionAddItemToList);
@@ -50,18 +50,6 @@
 		}
 	});
 
-	const ctown = getShoppingList('CTown');
-	const wholefoods = getShoppingList('Whole Foods');
-
-	ctown.addToList('mangoes');
-	ctown.addToList('coffee');
-
-	wholefoods.addToList('steak');
-	wholefoods.addToList('potatoes');
-
-	console.log(wholefoods.countItemsInList());
-
-	console.log('wholefoods fam');
-	console.log(wholefoods.displayList());
-	console.log('ctown fam');
+	const list = getShoppingList('CTown');
+	list.displayList();
 })();
