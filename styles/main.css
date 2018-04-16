@@ -84,17 +84,23 @@ body {
   grid-template-rows: fit-content(2em) auto;
   grid-template-columns: auto 1fr;
   grid-template-areas: "count title" "records records";
+  border: 2px solid #4297bb;
 }
 
 .list-title {
   grid-area: title;
   padding: 0.5em;
+  background-color: #52b9e6;
 }
 
 .list-item-count {
   grid-area: count;
   background-color: #4596be;
   padding: 0.5em;
+}
+
+.lst-item:hover {
+  background-color: #f4f4f4;
 }
 
 .tbl {
@@ -109,4 +115,5 @@ body {
 .tbl th, .tbl td {
   font-weight: 300;
   padding: 0.5em;
+  text-align: left;
 }
