@@ -27,12 +27,20 @@ body {
   padding: 0.5em 0.75em;
   background: #c6c6c6;
   border-radius: 0;
-  color: #333333;
+  color: #13313a;
   border: 3px solid transparent;
 }
 
 .btn:hover {
-  border: 3px solid #4596be;
+  border: 3px solid #4ebae3;
+}
+
+.btn.btn-primary {
+  background: #52b9e6;
+}
+
+.btn.btn-primary:hover {
+  border-color: #13313a;
 }
 
 .btn-inline {
