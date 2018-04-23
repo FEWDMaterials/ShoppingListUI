@@ -1,0 +1,113 @@
+    p, input, button {
+        font-family: "Segoe UI",Arial,Helvetica,sans-serif;
+        display:inline;
+        position:absolute;
+    }
+
+    p, input, button.add {
+        font-size: 24px;
+        top:258px;
+    }   
+
+    button.delete {
+        font-size: 12px;
+        margin-top: -10px;
+        margin-left: 40px;
+    }
+
+    #tblList {
+        font-family: "Segoe UI",Arial,Helvetica,sans-serif;
+        font-size: 24px;
+        display:inline;
+        position:absolute;
+        top:300px;
+        width: 800px;
+        left: 220px;
+    }
+
+    th {
+        text-align: center;
+        padding: 4px;
+    }
+
+    td {
+        text-align: left;
+        padding: 4px;
+    }
+
+
+
+    td.price, td.total {
+        text-align: right;
+        padding-right: 30px;
+    }
+
+    td.multiple {
+        border: 1px solid black;
+    }
+
+    td.coupon {
+        border: 1px solid black;
+        text-align: right;
+    }
+
+    td.coupon_active {
+        border: 1px solid black;
+        text-align: right;
+        background-color:darkseagreen;
+    }
+
+    #tblItems {
+        left: 220px;
+    }
+
+    #newItem {
+        left: 220px;
+        width: 200px;
+        padding-left:10px;
+    }
+
+    #newPrice {
+        left: 440px;
+        width: 110px;
+        padding-left:10px;
+    }
+
+    #addItem {
+        left: 570px;
+    }   
+
+    #addItems_button {
+        left: 690px;
+    }
+
+    #myBudget {
+        left: 820px;
+        width: 110px;
+        padding-left:10px;
+    }
+
+    #subTotal {
+        left: 950px;
+        margin-top: 4px;
+    }
+
+    #addItems {
+        font-family: "Segoe UI",Arial,Helvetica,sans-serif;
+        font-size: 24px;
+        background-color:rgba(255,255,255,0.95);
+        width:300px;
+        height:130px;
+        display:none;
+        position:absolute;
+        top:300px;
+        left:690px;
+        padding-top:10px;
+        padding-left:20px;
+    }
+
+    #addItems_exit {
+        left: 36px; 
+        top: 0px; 
+        position:relative;
+    }
