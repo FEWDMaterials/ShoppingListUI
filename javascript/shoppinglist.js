@@ -9,7 +9,10 @@ const getShoppingList = () => {
 		displayList: () => {
 			let str = '';
 			for (let i = 0; i < ShoppingList.list.length; i++) {
-				str += (i+1) + '. ' + ShoppingList.list[i] + '\n';
+        str += `<tr>
+									<td>${(i+1)}</td>
+									<td>${ShoppingList.list[i]}</td>
+								</tr>`;
 			}
 			return str;
 		},
@@ -29,6 +32,10 @@ ctown.addToList('coffee');
 
 wholefoods.addToList('steak') 
 wholefoods.addToList('potatoes')
+
+const tableBody = document.querySelector('#list-content');
+tableBody.innerHTML = wholefoods.displayList();
+
 
 console.log(wholefoods.countItemsInList())
 
