@@ -22,7 +22,7 @@ const getShoppingList = () => {
 	};	
 
 	return ShoppingList;
-}
+};
 
 const ctown = getShoppingList();
 const wholefoods = getShoppingList();
@@ -30,16 +30,20 @@ const wholefoods = getShoppingList();
 ctown.addToList('mangoes');
 ctown.addToList('coffee');
 
-wholefoods.addToList('steak') 
-wholefoods.addToList('potatoes')
+wholefoods.addToList('steak');
+wholefoods.addToList('potatoes');
 
+<<<<<<< Updated upstream
 const tableBody = document.querySelector('#list-content');
 tableBody.innerHTML = wholefoods.displayList();
 
 
 console.log(wholefoods.countItemsInList())
+=======
+console.log(wholefoods.countItemsInList());
+>>>>>>> Stashed changes
 
-console.log('wholefoods fam')
-console.log(wholefoods.displayList())
-console.log('ctown fam')
-console.log(ctown.displayList())
+console.log('wholefoods fam');
+console.log(wholefoods.displayList());
+console.log('ctown fam');
+console.log(ctown.displayList());
