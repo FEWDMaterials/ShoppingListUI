@@ -33,15 +33,11 @@ ctown.addToList('coffee');
 wholefoods.addToList('steak');
 wholefoods.addToList('potatoes');
 
-<<<<<<< Updated upstream
 const tableBody = document.querySelector('#list-content');
 tableBody.innerHTML = wholefoods.displayList();
 
-
-console.log(wholefoods.countItemsInList())
-=======
 console.log(wholefoods.countItemsInList());
->>>>>>> Stashed changes
+
 
 console.log('wholefoods fam');
 console.log(wholefoods.displayList());
