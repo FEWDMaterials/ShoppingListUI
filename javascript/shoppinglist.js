@@ -12,6 +12,7 @@ const getShoppingList = () => {
         str += `<tr>
 									<td>${(i+1)}</td>
 									<td>${ShoppingList.list[i]}</td>
+									<td></td>
 								</tr>`;
 			}
 			return str;
@@ -24,22 +25,31 @@ const getShoppingList = () => {
 	return ShoppingList;
 };
 
-const ctown = getShoppingList();
-const wholefoods = getShoppingList();
-
-ctown.addToList('mangoes');
-ctown.addToList('coffee');
-
-wholefoods.addToList('steak');
-wholefoods.addToList('potatoes');
-
+const myList = getShoppingList();
 const tableBody = document.querySelector('#list-content');
-tableBody.innerHTML = wholefoods.displayList();
+tableBody.innerHTML = myList.displayList();
+const item = document.querySelector('.js-item-input').value;
+const addBtn = document.querySelector('.js-add-btn');
 
-console.log(wholefoods.countItemsInList());
+addBtn.addEventListener('click', event => {
+	myList.addToList(item);
+});
 
 
-console.log('wholefoods fam');
-console.log(wholefoods.displayList());
-console.log('ctown fam');
-console.log(ctown.displayList());
+
+
+// examples
+// const ctown = getShoppingList();
+// const wholefoods = getShoppingList();
+//
+// ctown.addToList('mangoes');
+// ctown.addToList('coffee');
+//
+// wholefoods.addToList('steak');
+// wholefoods.addToList('potatoes');
+//
+// console.log(wholefoods.countItemsInList());
+// console.log('wholefoods fam');
+// console.log(wholefoods.displayList());
+// console.log('ctown fam');
+// console.log(ctown.displayList());
