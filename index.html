@@ -10,6 +10,8 @@
     <h1 class="title">Hello, Wrold!</h1>
 
     <form class="frm frm-add-items" action="#">
+        <input id="edit-row-id" type="hidden" value="-1"/>
+
         <div class="inp-row inp-qty">
             <input class="inp inp-num" type="number" placeholder="Qty"/>
         </div>
@@ -19,7 +21,8 @@
         </div>
 
         <div class="inp-actions">
-            <button class="btn btn-add">Add To List</button>
+            <button class="btn btn-add btn-primary">Add</button>
+            <button class="btn btn-reset">Reset...</button>
         </div>
     </form>
 
@@ -38,7 +41,7 @@
             <tbody class="lst-items">
             </tbody>
             <template id="tpl-item-row">
-                <tr class="lst-item">
+                <tr class="lst-item" data-entry-id="">
                     <td class="item-qty"></td>
                     <td class="item-name"></td>
                     <td class="item-actions">
