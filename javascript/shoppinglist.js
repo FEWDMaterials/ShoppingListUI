@@ -16,7 +16,9 @@
 		const totalPrice = document.querySelector('.lst-totals .total-price');
 		const listTitleElm = document.querySelector('.list .list-title');
 
-		const _items = [];
+		const LOCAL_STORAGE_LIST = 'list';
+
+		let _items = null;
 		let listName = '';
 		let _mode = 'add';
 
@@ -49,14 +51,47 @@
 			totalPrice.innerHTML = _priceTotal.toFixed(2);
 		};
 
+		const _deepFreeze = () => {
+			console.log('deep freeze');
+			if (!window.hasOwnProperty('localStorage')) {
+				console.log('Cannot save to long term storage as this browser does not support it.');
+				return;
+			}
+			window.localStorage.setItem(LOCAL_STORAGE_LIST, JSON.stringify(_items));
+		};
+
+		const _deepDefrost = () => {
+			console.log('deep defrost');
+			if (!window.hasOwnProperty('localStorage')) {
+				console.log('Cannot read from long term storage as this browser does not support it.');
+				return [];
+			}
+
+			const data = JSON.parse(window.localStorage.getItem(LOCAL_STORAGE_LIST));
+			if (!data || data.length < 1) {
+				return [];
+			}
+
+			data.forEach(item => {
+				// TODO: There must be a better way?
+				Object.setPrototypeOf(item, Item);
+
+				// TODO: ... and here too.
+				item.render = item._render;
+			});
+			return data;
+		};
+
 		return {
 			setup: (name) => {
 				listName = name;
+				_items = _deepDefrost();
 				_render();
 			},
 
 			addItem: (item) => {
 				_items.push(item);
+				_deepFreeze();
 				_render();
 			},
 
@@ -65,6 +100,7 @@
 				inpQtyElm.value = '-2';
 				inpNameElm.value = 'Add data from what was selected';
 				inpPriceElm.value = '-4';
+				_deepFreeze();
 				_render();
 			},
 
@@ -84,12 +120,12 @@
 		_name: '',
 		_price: 0,
 
-		_cleanupQtyValue: function(value = '') {
+		_cleanupQtyValue: function (value = '') {
 			value = parseInt(value, 10);
 			return (!!value && !isNaN(value) && value >= 0) ? value : 1;
 		},
 
-		_cleanupPriceValue: function(value) {
+		_cleanupPriceValue: function (value) {
 			value = parseFloat(value);
 			return !isNaN(value) ? value : 0.00;
 		},
