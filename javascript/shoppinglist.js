@@ -1,3 +1,4 @@
+"use strict";
 (function () {
 	const inpQtyElm = document.querySelector('.inp-qty .inp');
 	const inpNameElm = document.querySelector('.inp-item-name .inp');
@@ -83,6 +84,16 @@
 		_name: '',
 		_price: 0,
 
+		_cleanupQtyValue: function(value = '') {
+			value = parseInt(value, 10);
+			return (!!value && !isNaN(value) && value >= 0) ? value : 1;
+		},
+
+		_cleanupPriceValue: function(value) {
+			value = parseFloat(value);
+			return !isNaN(value) ? value : 0.00;
+		},
+
 		_render: function () {
 			const _elemHandel = document.importNode(document.querySelector('#tpl-item-row').content, true);
 			_elemHandel.querySelector('.item-qty').innerHTML = this._qty;
@@ -93,9 +104,9 @@
 
 		create: function (qty, name, price) {
 			const item = Object.create(this);
-			item._qty = isNaN(qty) ? null : parseInt(qty, 10) ;
+			item._qty = Item._cleanupQtyValue(qty);
 			item._name = name;
-			item._price = isNaN(price) ? null : parseFloat(price);
+			item._price = Item._cleanupPriceValue(price);
 			item.render = item._render;
 			return item;
 		},
@@ -104,9 +115,9 @@
 	ListObj.setup('Groceries');
 
 	const actionAddItemToList = () => {
-		const qty = parseFloat(inpQtyElm.value.trim());
+		const qty = inpQtyElm.value.trim();
 		const name = inpNameElm.value.trim();
-		const price = parseFloat(inpPriceElm.value.trim());
+		const price = inpPriceElm.value.trim();
 
 		if (name.length > 0) {
 			ListObj.addItem(Item.create(qty, name, price));
