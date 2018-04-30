@@ -99,8 +99,16 @@ body {
   padding: 0.5em;
 }
 
-.lst-item:hover {
+.lst-item:nth-child(2n+1) {
   background-color: #f4f4f4;
+}
+
+.lst-item:hover {
+  background-color: #efefef;
+}
+
+.lst-totals{
+  background-color: #4297bb;
 }
 
 .tbl {

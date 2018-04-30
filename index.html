@@ -7,8 +7,6 @@
 <body>
 
 <div class="page">
-    <h1 class="title">Hello, Wrold!</h1>
-
     <form class="frm frm-add-items" action="#">
         <input id="edit-row-id" type="hidden" value="-1"/>
 
@@ -16,34 +14,49 @@
             <input class="inp inp-num" type="number" placeholder="Qty"/>
         </div>
 
+        <div class="inp-row inp-item-price">
+            <input class="inp inp-txt" type="text" placeholder="Price"/>
+        </div>
+
         <div class="inp-row inp-item-name">
-            <input class="inp inp-txt" type="text" placeholder="Item Name"/>
+            <input class="inp inp-txt" type="text" placeholder="Name"/>
         </div>
 
         <div class="inp-actions">
             <button class="btn btn-add btn-primary">Add</button>
-            <button class="btn btn-reset">Reset...</button>
         </div>
     </form>
 
 
     <div class="list">
         <div class="list-title">Title</div>
-        <div class="list-item-count">Count</div>
         <table class="tbl tbl-list">
             <thead>
             <tr>
                 <th>Qty</th>
                 <th>Item</th>
+                <th>Price</th>
                 <th>Actions</th>
             </tr>
             </thead>
+
             <tbody class="lst-items">
             </tbody>
+
+            <tfoot class="lst-totals">
+            <tr>
+                <th class="total-qty">0</th>
+                <th class="total-item"></th>
+                <th class="total-price">0.00</th>
+                <th class="total-actions"></th>
+            </tr>
+            </tfoot>
+
             <template id="tpl-item-row">
                 <tr class="lst-item" data-entry-id="">
                     <td class="item-qty"></td>
                     <td class="item-name"></td>
+                    <td class="item-price"></td>
                     <td class="item-actions">
                         <button class="btn btn-inline btn-remove action-item-remove">Remove</button>
                         <button class="btn btn-inline btn-edit action-item-edit">Edit</button>
