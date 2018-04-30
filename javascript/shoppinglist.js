@@ -4,23 +4,39 @@
 	const inpPriceElm = document.querySelector('.inp-item-price .inp');
 
 	const inpEditIdElm = document.querySelector('#edit-row-id');
+
 	const btnAdd = document.querySelector('.inp-actions .btn-add');
-
-	const listTitleElm = document.querySelector('.list .list-title');
-
+	const btnEdit = document.querySelector('.inp-actions .btn-edit');
+	const btnCancel = document.querySelector('.inp-actions .btn-cancel');
 
 	const ListObj = (function () {
 		const _listBody = document.querySelector('.lst-items');
 		const totalQty = document.querySelector('.lst-totals .total-qty');
 		const totalPrice = document.querySelector('.lst-totals .total-price');
+		const listTitleElm = document.querySelector('.list .list-title');
 
 		const _items = [];
 		let listName = '';
+		let _mode = 'add';
 
 		const _render = () => {
 			let _qtyTotal = 0;
 			let _priceTotal = 0;
+
 			_listBody.innerHTML = '';
+
+			listTitleElm.innerHTML = listName;
+
+			if (_mode === 'add') {
+				btnAdd.classList.remove('hidden');
+				btnEdit.classList.add('hidden');
+				btnCancel.classList.add('hidden');
+
+			} else if (_mode === 'edit') {
+				btnAdd.classList.add('hidden');
+				btnEdit.classList.remove('hidden');
+				btnCancel.classList.remove('hidden');
+			}
 
 			_items.forEach(item => {
 				_qtyTotal = _qtyTotal + item._qty;
@@ -33,14 +49,31 @@
 		};
 
 		return {
-			setListName: (name) => {
+			setup: (name) => {
 				listName = name;
+				_render();
 			},
 
 			addItem: (item) => {
 				_items.push(item);
 				_render();
 			},
+
+			editItem: () => {
+				_mode = 'edit';
+				inpQtyElm.value = '-2';
+				inpNameElm.value = 'Add data from what was selected';
+				inpPriceElm.value = '-4';
+				_render();
+			},
+
+			cancelEditItem: () => {
+				_mode = 'add';
+				inpQtyElm.value = '';
+				inpNameElm.value = '';
+				inpPriceElm.value = '';
+				_render();
+			}
 		}
 	})();
 
@@ -60,22 +93,22 @@
 
 		create: function (qty, name, price) {
 			const item = Object.create(this);
-			item._qty = qty;
+			item._qty = isNaN(qty) ? null : parseInt(qty, 10) ;
 			item._name = name;
-			item._price = price;
+			item._price = isNaN(price) ? null : parseFloat(price);
 			item.render = item._render;
 			return item;
 		},
 	};
 
-	ListObj.setListName('Test List');
+	ListObj.setup('Groceries');
 
 	const actionAddItemToList = () => {
 		const qty = parseFloat(inpQtyElm.value.trim());
 		const name = inpNameElm.value.trim();
 		const price = parseFloat(inpPriceElm.value.trim());
 
-		if (name.length !== 0) {
+		if (name.length > 0) {
 			ListObj.addItem(Item.create(qty, name, price));
 			inpQtyElm.value = '';
 			inpNameElm.value = '';
@@ -83,6 +116,8 @@
 		}
 	};
 
+	btnEdit.addEventListener('click', ListObj.editItem());
+	btnCancel.addEventListener('click', ListObj.cancelEditItem());
 	btnAdd.addEventListener('click', actionAddItemToList);
 	document.addEventListener('keyup', (event) => {
 		if (event.keyCode === 13) {

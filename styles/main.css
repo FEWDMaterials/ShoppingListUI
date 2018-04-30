@@ -107,7 +107,7 @@ body {
   background-color: #efefef;
 }
 
-.lst-totals{
+.lst-totals {
   background-color: #4297bb;
 }
 
@@ -124,4 +124,8 @@ body {
   font-weight: 300;
   padding: 0.5em;
   text-align: left;
+}
+
+.hidden {
+  display: none;
 }
