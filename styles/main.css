@@ -1,4 +1,136 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   width: 100%;
   height: 100%;
+  font-size: 16pt;
+}
+
+.page {
+  padding: 1em;
+}
+
+.title {
+  font-size: 1.1em;
+}
+
+.frm {
+  display: block;
+  position: relative;
+}
+
+.btn {
+  display: inline-block;
+  margin: 0;
+  padding: 0.5em 0.75em;
+  background: #c6c6c6;
+  border-radius: 0;
+  color: #13313a;
+  border: 3px solid transparent;
+}
+
+.btn:hover {
+  border: 3px solid #4ebae3;
+}
+
+.btn.btn-primary {
+  background: #52b9e6;
+}
+
+.btn.btn-primary:hover {
+  border-color: #13313a;
+}
+
+.btn-inline {
+  padding: 0;
+  margin: 0;
+  text-decoration: underline;
+  font-size: 0.66em;
+  background-color: unset;
+  border: 0;
+}
+
+.btn-inline:hover {
+  border: 0;
+}
+
+.inp {
+  padding: 0.5em;
+  border: 0;
+  width: 100%;
+}
+
+.inp-row {
+  border: 1px solid #e0e0e0;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1em;
+}
+
+.inp-qty {
+  max-width: 5em;
+}
+
+.inp-actions {
+  position: relative;
+  display: inline-block;
+}
+
+.list {
+  margin: 1em 0;
+  display: grid;
+  grid-template-rows: fit-content(2em) auto;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "count title" "records records";
+  border: 2px solid #4297bb;
+}
+
+.list-title {
+  grid-area: title;
+  padding: 0.5em;
+  background-color: #52b9e6;
+}
+
+.list-item-count {
+  grid-area: count;
+  background-color: #4596be;
+  padding: 0.5em;
+}
+
+.lst-item:nth-child(2n+1) {
+  background-color: #f4f4f4;
+}
+
+.lst-item:hover {
+  background-color: #efefef;
+}
+
+.lst-totals {
+  background-color: #4297bb;
+}
+
+.tbl {
+  grid-area: records;
+}
+
+.tbl thead {
+  background-color: #4596be;
+  color: white;
+}
+
+.tbl th, .tbl td {
+  font-weight: 300;
+  padding: 0.5em;
+  text-align: left;
+}
+
+.tbl .total-price,
+.tbl .item-price {
+  text-align: right;
+}
+
+.hidden {
+  display: none;
 }
