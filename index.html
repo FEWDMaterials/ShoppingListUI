@@ -5,10 +5,49 @@
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
-    <h1>Hello, Wrold!</h1>
+    <nav class="navbar navbar-dark bg-dark">
+      <h1>Shopping List</h1>
+    </nav>
+    <header class="container">
+      <div class="row">
+        <div class="col">
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control js-item-input" placeholder="Biscuits and Gravy Potato Chips" aria-label="- Example Item" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary js-add-btn btn-primary" type="button">Add Item +</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="container">
+      <div class="row">
+        <div class="col">
+          <h2>Shopping List</h2>
+          <ul class="list-group js-list">
+
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h2>Completed Items</h2>
+          <ul class="list-group js-list-completed">
+
+          </ul>
+        </div>
+      </div>
+    </main>
+
+
+
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-    <script src="javascript/shoppinglist.js"></script>
+    <!--<script src="javascript/shoppinglist.js"></script>-->
+    <script src="javascript/main.js"></script>
   </body>
 </html>
